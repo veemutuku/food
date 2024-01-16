@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from Utamu.models import Product
+
 
 # Create your views here.
 def home(request):
@@ -13,4 +15,6 @@ def about(request):
 def contact(request):
     return render(request, 'contact.html')
 def product(request):
-    return render(request, 'product.html')
+    all_product= Product.objects.all()
+
+    return render(request, 'product.html',{'products':all_product})
